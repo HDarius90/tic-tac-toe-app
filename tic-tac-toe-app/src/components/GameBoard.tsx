@@ -1,5 +1,15 @@
+import { Board } from "./Board";
 import styles from "./GameBoard.module.css";
 
 export const GameBoard = () => {
-  return <div className={styles.background}></div>;
+  
+    const handleClick = () => {
+        console.log('handleClick');        
+    }
+
+    return (
+      <div className={styles.bacground}>
+        <Board numberOfSquares={9} onClick={handleClick}/>
+      </div>
+    );
 };

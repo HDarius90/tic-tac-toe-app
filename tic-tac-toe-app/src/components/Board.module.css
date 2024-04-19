@@ -1,0 +1,17 @@
+.board {
+    background-color: rgb(20,189,172);
+    min-width: 20vw;
+    min-height: 20vw;
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgb(20,189,172);
+    /* display: flex; */
+    flex-flow: row wrap;
+    justify-content: center;
+    display: grid;
+    column-gap: none;
+    grid-template-columns: auto auto auto;
+    /* background-color: #2196F3; */
+    /* padding: 10px; */
+}

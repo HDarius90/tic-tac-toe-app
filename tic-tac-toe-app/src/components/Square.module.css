@@ -1,0 +1,32 @@
+.square {
+  height: 100%;
+  width: 100%;
+  flex: 0 1 30%;
+  background: rgb(20, 189, 172);
+  border-radius: 0%;
+}
+
+.square:nth-child(-n + 3) {
+    border-bottom: 5px solid rgb(13, 161, 146);
+  }
+  
+  .square:nth-last-child(-n + 3) {
+    border-top: 5px solid rgb(13, 161, 146);
+  }
+
+  .square:nth-child(2) {
+    border-right: 5px solid rgb(13, 161, 146);
+    border-left: 5px solid rgb(13, 161, 146);
+  } 
+  .square:nth-child(5) {
+    border-right: 5px solid rgb(13, 161, 146);
+    border-left: 5px solid rgb(13, 161, 146);
+  } 
+
+  .square:nth-last-child(2) {
+    border-right: 5px solid rgb(13, 161, 146);
+    border-left: 5px solid rgb(13, 161, 146);
+  } 
+
+
+
