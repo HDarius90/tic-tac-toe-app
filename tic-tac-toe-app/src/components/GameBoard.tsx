@@ -1,7 +1,8 @@
+import { GameBoardProps } from "../interface";
 import { Board } from "./Board";
 import styles from "./GameBoard.module.css";
 
-export const GameBoard = () => {
+export const GameBoard: React.FC<GameBoardProps> = ({boardState}) => {
   
     const handleClick = () => {
         console.log('handleClick');        
@@ -9,7 +10,7 @@ export const GameBoard = () => {
 
     return (
       <div className={styles.bacground}>
-        <Board numberOfSquares={9} onClick={handleClick}/>
+        <Board numberOfSquares={9} boardState={boardState} onClick={handleClick}/>
       </div>
     );
 };
