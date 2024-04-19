@@ -2,6 +2,9 @@ import { SquareProps } from "../interface";
 import styles from "./Square.module.css";
 
 export const Square: React.FC<SquareProps> = ({ value, onClick }) => {
+  console.log(`type of ${value}${typeof value}`);
+  console.log(value === `"X"`);
+
   return (
     <button className={styles.square} onClick={onClick}>
       {value === "X" ? (
@@ -35,7 +38,9 @@ export const Square: React.FC<SquareProps> = ({ value, onClick }) => {
           />
           Sorry, your browser does not support inline SVG.
         </svg>
-      ) : <div className={styles.empty}></div>}
+      ) : (
+        <div className={styles.empty}></div>
+      )}
     </button>
   );
 };
