@@ -15,7 +15,7 @@ function App() {
     aiPlayer: aiPlayer,
   };
   const difficulty = "Hard";
-  const defaultBoard  = [0, "O", 2, 3, 4, 5, 6, 7, 8];
+  const defaultBoard  = [0, "X", 2, 3, 4, 5, 6, 7, 8];
   const [board, setBoard] = useState(defaultBoard);
 
   const nextMove = ComputerMove(board, symbols, difficulty);

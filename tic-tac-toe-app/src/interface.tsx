@@ -1,7 +1,7 @@
 export interface BoardProps {
   numberOfSquares: number;
   boardState: (number | string)[];
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void ;
 }
 
 export interface GameBoardProps {
@@ -10,5 +10,5 @@ export interface GameBoardProps {
 
 export interface SquareProps {
   value: string | number;
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void ;
 }

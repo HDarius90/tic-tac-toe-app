@@ -2,8 +2,6 @@ import { SquareProps } from "../interface";
 import styles from "./Square.module.css";
 
 export const Square: React.FC<SquareProps> = ({ value, onClick }) => {
-  console.log(`type of ${value}${typeof value}`);
-  console.log(value === `"X"`);
 
   return (
     <button className={styles.square} onClick={onClick}>
