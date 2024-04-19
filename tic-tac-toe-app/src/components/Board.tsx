@@ -10,7 +10,7 @@ export const Board: React.FC<BoardProps> = ({ numberOfSquares, onClick }) => {
   return (
     <div className={styles.board}>
       {elements.map((index) => (
-        <Square key={index} onClick={onClick}  />
+        <Square key={index} value={'O'} onClick={onClick}  />
       ))}
     </div>
   );
