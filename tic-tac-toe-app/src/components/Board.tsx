@@ -12,22 +12,24 @@ export const Board: React.FC<BoardProps> = ({
   const elements = Array.from({ length: numberOfSquares }, (_, index) => index);
 
   return (
-    <div className={styles.board}>
-      {elements.map((index) => (
-        <Square
-          key={index}
-          value={boardState[index]}
-          onClick={
-            typeof boardState[index] === "number"
-              ? () => {
-                  if (onClick) {
-                    onClick(index);
+    <>
+      <div className={styles.board}>
+        {elements.map((index) => (
+          <Square
+            key={index}
+            value={boardState[index]}
+            onClick={
+              typeof boardState[index] === "number"
+                ? () => {
+                    if (onClick) {
+                      onClick(index);
+                    }
                   }
-                }
-              : undefined
-          }
-        />
-      ))}
-    </div>
+                : undefined
+            }
+          />
+        ))}
+      </div>
+    </>
   );
 };

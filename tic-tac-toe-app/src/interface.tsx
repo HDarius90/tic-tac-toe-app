@@ -1,3 +1,5 @@
+export type BoardState = (number | string)[];
+
 export interface BoardProps {
   numberOfSquares: number;
   boardState: (number | string)[];

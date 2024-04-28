@@ -4,3 +4,19 @@
   padding: 2rem;
   text-align: center;
 }
+
+.overlay {
+  position:fixed;
+  top: 20vw;
+  left: 0;
+  right: 0;
+  bottom: 20vw;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  /* opacity:0; Initially hidden */
+  transition: opacity 0.3s ease; /* Smooth transition for opacity changes */
+  z-index: 999; /* Ensure the overlay appears above other content */
+  pointer-events: none; /* Allow interaction with elements beneath the overlay */
+
+  /* Optional: Add box shadow for a subtle shadow effect */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
+}
