@@ -67,7 +67,7 @@ function App() {
     } catch (error) {
       console.error("Error fetching computer move:", error);
     }
-    hasThreeInARow(board) ? setGameOver([true, huPlayer]) : console.log(board);
+    hasThreeInARow(board) ? setGameOver([true, huPlayer]) : "";
   };
 
   return (
