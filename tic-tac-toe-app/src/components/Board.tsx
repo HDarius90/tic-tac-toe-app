@@ -17,7 +17,15 @@ export const Board: React.FC<BoardProps> = ({
         <Square
           key={index}
           value={boardState[index]}
-          onClick={typeof boardState[index] === 'number' ? onClick : undefined}
+          onClick={
+            typeof boardState[index] === "number"
+              ? () => {
+                  if (onClick) {
+                    onClick(index);
+                  }
+                }
+              : undefined
+          }
         />
       ))}
     </div>
