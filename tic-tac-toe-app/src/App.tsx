@@ -14,16 +14,17 @@ function App() {
     huPlayer: huPlayer,
     aiPlayer: aiPlayer,
   };
-  const difficulty = "Hard";
+  const difficulty = "Easy";
   const defaultBoard: (string | number)[] = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   const [board, setBoard] = useState(defaultBoard);
+  const [isHuTurn, setIsHuTurn] = useState(true);
   const [gameOver, setGameOver] = useState([false, ""]);
 
   useEffect(() => {
     if (hasThreeInARow(board)) {
-      setGameOver([true, huPlayer]);
+      isHuTurn ? setGameOver([true, huPlayer]) : setGameOver([true, aiPlayer]);
     }
-  }, [board]);
+  }, [board, isHuTurn]);
 
   const hasThreeInARow = (board: BoardState) => {
     const winningCombinations = [
@@ -54,20 +55,25 @@ function App() {
     if (board[index] === huPlayer) return; // Ignore if already played by human
 
     const updatedBoard = [...board];
+
     updatedBoard[index] = huPlayer;
     setBoard(updatedBoard);
+    setIsHuTurn(true);
+
     await new Promise((resolve) => setTimeout(resolve, 500));
 
     // Apply computer's move to the board
     try {
       const move = await ComputerMove(updatedBoard, symbols, difficulty);
       const newUpdatedBoard = [...updatedBoard]; // Create a new copy of the updated board
+
       newUpdatedBoard[move] = aiPlayer; // Apply AI player's move
       setBoard(newUpdatedBoard); // Update board state with AI player's move
     } catch (error) {
       console.error("Error fetching computer move:", error);
     }
-    hasThreeInARow(board) ? setGameOver([true, huPlayer]) : "";
+
+    setIsHuTurn(false);
   };
 
   return (
