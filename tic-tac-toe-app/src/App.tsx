@@ -92,10 +92,8 @@ function App() {
         <GameBoard boardState={board} handleClick={handleClick} />
         {isGameOver && (
           <div className="overlay">
-            <p>
               <h1>GAME OVER</h1>
               <h2>The winner is: {winner}</h2>
-            </p>
           </div>
         )}
       </div>

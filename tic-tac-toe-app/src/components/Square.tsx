@@ -31,7 +31,7 @@ export const Square: React.FC<SquareProps> = ({ value, onClick }) => {
             cy="50"
             r="40"
             stroke="rgb(13, 161, 146)"
-            stroke-width="10"
+            strokeWidth="10"
             fill="rgb(20, 189, 172)"
           />
           Sorry, your browser does not support inline SVG.
