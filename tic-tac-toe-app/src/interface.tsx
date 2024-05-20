@@ -1,3 +1,5 @@
+import React, { Dispatch, SetStateAction } from 'react';
+
 export type BoardState = (number | string)[];
 
 export interface BoardProps {
@@ -14,4 +16,9 @@ export interface GameBoardProps {
 export interface SquareProps {
   value: string | number;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+export interface DifficultyPickerProps {
+  difficulty: string;
+  setDifficulty: Dispatch<SetStateAction<string>>;
 }

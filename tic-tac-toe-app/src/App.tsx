@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import Minimax from 'tic-tac-toe-minimax';
 import './App.css';
 import { DifficultyPicker } from './components/DifficultyPicker';
-import { GameBoard } from './components/GameBoard';
 import { SideSwitcher } from './components/SideSwitcher';
 import { BoardState } from './interface';
+import { Board } from './components/Board';
 
 function App() {
   const { ComputerMove } = Minimax;
@@ -14,7 +14,7 @@ function App() {
     huPlayer: huPlayer,
     aiPlayer: aiPlayer,
   };
-  const difficulty = 'Easy';
+  const [difficulty, setDifficulty] = useState('Easy');
   const defaultBoard: (string | number)[] = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   const [board, setBoard] = useState(defaultBoard);
   const [isHuTurn, setIsHuTurn] = useState(true);
@@ -84,21 +84,23 @@ function App() {
   };
 
   return (
-    <>
-      <DifficultyPicker />
+    <div className="appContainer">
+      <DifficultyPicker difficulty={difficulty} setDifficulty={setDifficulty} />
       <SideSwitcher />
       <span>Start the game or choose your player</span>
       <div>
-        <GameBoard boardState={board} handleClick={handleClick} />
+        <Board numberOfSquares={9} boardState={board} onClick={handleClick} />
         {isGameOver && (
           <div className="overlay">
-              <h1>GAME OVER</h1>
-              <h2>The winner is: {winner}</h2>
+            <h1>GAME OVER</h1>
+            <h2>The winner is: {winner}</h2>
           </div>
         )}
       </div>
-      <button onClick={handleRestart}>Restart</button>
-    </>
+      <button className="restartButton" onClick={handleRestart}>
+        Restart
+      </button>
+    </div>
   );
 }
 

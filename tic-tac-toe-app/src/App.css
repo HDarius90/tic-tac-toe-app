@@ -1,8 +1,11 @@
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+}
+
+.restartButton {
+  width: 100%;
 }
 
 .overlay {
@@ -19,4 +22,8 @@
 
   /* Optional: Add box shadow for a subtle shadow effect */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Horizontal offset, vertical offset, blur radius, color */
+}
+
+.appContainer {
+  width: 50rem;
 }
