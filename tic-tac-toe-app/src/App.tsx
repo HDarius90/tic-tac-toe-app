@@ -26,7 +26,7 @@ function App() {
   const switchSide = () => {
     setHuPlayer('O');
     setAiPlayer('X');
-    setSymbols((prevSymbols) => ({
+    setSymbols(() => ({
       huPlayer: 'O',
       aiPlayer: 'X',
     }));
