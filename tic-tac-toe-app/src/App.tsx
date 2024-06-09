@@ -89,10 +89,7 @@ function App() {
   };
 
   const handleRestart = () => {
-    setBoard(defaultBoard);
-    setIsGameOver(false);
-    setWinner('');
-    setIsHuTurn(true); // Human player starts first after restart
+    window.location.reload()
   };
 
   return (
