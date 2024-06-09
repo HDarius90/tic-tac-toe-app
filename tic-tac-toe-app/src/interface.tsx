@@ -1,4 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react';
+import { Side } from './types';
 
 export type BoardState = (number | string)[];
 
@@ -21,4 +22,9 @@ export interface SquareProps {
 export interface DifficultyPickerProps {
   difficulty: string;
   setDifficulty: Dispatch<SetStateAction<string>>;
+}
+
+export interface SideSwitchProps {
+  selected: Side;
+  switchSide: () => void;
 }

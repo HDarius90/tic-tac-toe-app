@@ -6,21 +6,32 @@ import { SideSwitcher } from './components/SideSwitcher';
 import { BoardState } from './interface';
 import { Board } from './components/Board';
 import { InfoPanel } from './components/InfoPanel';
+import { Side } from './types';
 
 function App() {
   const { ComputerMove } = Minimax;
-  const huPlayer = 'X';
-  const aiPlayer = 'O';
-  const symbols = {
+  const [huPlayer, setHuPlayer] = useState<Side>('X');
+  const [aiPlayer, setAiPlayer] = useState<Side>('O');
+  const [symbols, setSymbols] = useState({
     huPlayer: huPlayer,
     aiPlayer: aiPlayer,
-  };
+  });
   const [difficulty, setDifficulty] = useState('Easy');
   const defaultBoard: (string | number)[] = [0, 1, 2, 3, 4, 5, 6, 7, 8];
   const [board, setBoard] = useState(defaultBoard);
   const [isHuTurn, setIsHuTurn] = useState(true);
   const [isGameOver, setIsGameOver] = useState(false);
   const [winner, setWinner] = useState('');
+
+  const switchSide = () => {
+    setHuPlayer('O');
+    setAiPlayer('X');
+    setSymbols({
+      huPlayer: huPlayer,
+      aiPlayer: aiPlayer,
+    });
+    setIsHuTurn(false);
+  };
 
   useEffect(() => {
     const aiMove = async (board: BoardState) => {
@@ -66,7 +77,7 @@ function App() {
           aiMove(board);
         }, 500)
       : null;
-  }, [board]);
+  }, [board, huPlayer]);
 
   const handleClick = async (index: number) => {
     if (isGameOver) return; // Ignore if game is over
@@ -87,7 +98,7 @@ function App() {
   return (
     <div className="appContainer">
       <DifficultyPicker difficulty={difficulty} setDifficulty={setDifficulty} />
-      <SideSwitcher />
+      <SideSwitcher switchSide={switchSide} selected={huPlayer} />
       <InfoPanel />
       <Board numberOfSquares={9} boardState={board} onClick={handleClick} />
       {isGameOver && (

@@ -11,5 +11,5 @@
 }
 
 .selected {
-    border-bottom: 5px solid rgb(20,189,172);
+    border-bottom: 0.5rem solid rgb(20,189,172);
 }
