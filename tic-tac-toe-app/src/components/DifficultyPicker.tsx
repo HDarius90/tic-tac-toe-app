@@ -23,7 +23,7 @@ export const DifficultyPicker: React.FC<DifficultyPickerProps> = ({
     >
       <FormControl fullWidth size="small">
         <InputLabel sx={{ color: '#9e9e9e' }} id="demo-simple-select-label">
-          Nehézség
+          Difficulity
         </InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -32,9 +32,9 @@ export const DifficultyPicker: React.FC<DifficultyPickerProps> = ({
           label="Difficulity"
           onChange={handleChange}
         >
-          <MenuItem value={'Easy'}>Könnyű</MenuItem>
-          <MenuItem value={'Medium'}>Közepes</MenuItem>
-          <MenuItem value={'Hard'}>Verhetetlen</MenuItem>
+          <MenuItem value={'Easy'}>Easy</MenuItem>
+          <MenuItem value={'Medium'}>Medium</MenuItem>
+          <MenuItem value={'Hard'}>Hard</MenuItem>
         </Select>
       </FormControl>
     </Box>

@@ -5,6 +5,7 @@ import { DifficultyPicker } from './components/DifficultyPicker';
 import { SideSwitcher } from './components/SideSwitcher';
 import { BoardState } from './interface';
 import { Board } from './components/Board';
+import { InfoPanel } from './components/InfoPanel';
 
 function App() {
   const { ComputerMove } = Minimax;
@@ -87,16 +88,14 @@ function App() {
     <div className="appContainer">
       <DifficultyPicker difficulty={difficulty} setDifficulty={setDifficulty} />
       <SideSwitcher />
-      <span>Start the game or choose your player</span>
-      <div>
-        <Board numberOfSquares={9} boardState={board} onClick={handleClick} />
-        {isGameOver && (
-          <div className="overlay">
-            <h1>GAME OVER</h1>
-            <h2>The winner is: {winner}</h2>
-          </div>
-        )}
-      </div>
+      <InfoPanel />
+      <Board numberOfSquares={9} boardState={board} onClick={handleClick} />
+      {isGameOver && (
+        <div className="overlay">
+          <h1>GAME OVER</h1>
+          <h2>The winner is: {winner}</h2>
+        </div>
+      )}
       <button className="restartButton" onClick={handleRestart}>
         Restart
       </button>

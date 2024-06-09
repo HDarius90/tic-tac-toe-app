@@ -26,4 +26,7 @@
 
 .appContainer {
   width: 50rem;
+  border: 1px solid #3c4043;
+  border-radius: 2%;
+  padding: 5rem;
 }
