@@ -26,10 +26,10 @@ function App() {
   const switchSide = () => {
     setHuPlayer('O');
     setAiPlayer('X');
-    setSymbols({
-      huPlayer: huPlayer,
-      aiPlayer: aiPlayer,
-    });
+    setSymbols((prevSymbols) => ({
+      huPlayer: 'O',
+      aiPlayer: 'X',
+    }));
     setIsHuTurn(false);
   };
 
@@ -99,7 +99,11 @@ function App() {
     <div className="appContainer">
       <DifficultyPicker difficulty={difficulty} setDifficulty={setDifficulty} />
       <SideSwitcher switchSide={switchSide} selected={huPlayer} />
-      <InfoPanel />
+      <InfoPanel
+        isGameOver={isGameOver}
+        symbols={symbols}
+        isHuTurn={isHuTurn}
+      />
       <Board numberOfSquares={9} boardState={board} onClick={handleClick} />
       {isGameOver && (
         <div className="overlay">

@@ -28,3 +28,12 @@ export interface SideSwitchProps {
   selected: Side;
   switchSide: () => void;
 }
+
+export interface InfoPanelProps {
+  isGameOver: boolean;
+  symbols: {
+    huPlayer: Side;
+    aiPlayer: Side;
+  };
+  isHuTurn: boolean;
+}
